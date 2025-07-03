@@ -1,0 +1,459 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ВПК - Визитка</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      background: #111;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('file:///C:/Users/qute/Downloads/c3630db4547e9aaf17235edee807b8e5-fotor-enhance-20250630162157.jpg') center/cover no-repeat;
+      filter: brightness(0.6);
+      z-index: 0;
+    }
+
+    .hero h1,
+    .hero p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 120px;
+      margin: 0;
+    }
+
+    .hero p {
+      font-size: 28px;
+      color: #ddd;
+      margin-top: 10px;
+    }
+
+    .contact, .portfolio {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact::before, .portfolio::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      filter: blur(10px) brightness(0.6);
+    }
+
+    .contact::before {
+      background-image: url('file:///C:/Users/qute/Downloads/f99bfc9a8f5b494c9c3fe24128f7c200-fotor-enhance-20250630162111.jpg');
+    }
+
+    .portfolio::before {
+      background-image: url('file:///C:/Users/qute/Downloads/463c4f9f58449f81ab35d91973e83cf8.-fotor-enhance-20250630162010.jpg');
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+      z-index: 1;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact p {
+      font-size: 32px;
+      font-weight: 500;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .call-button {
+      margin-top: 30px;
+      padding: 18px 40px;
+      background-color: #20b2aa;
+      border: none;
+      border-radius: 40px;
+      font-size: 20px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .call-button:hover {
+      background-color: #1aa39a;
+    }
+
+    .portfolio h2 {
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      z-index: 1;
+    }
+
+    .portfolio-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .portfolio-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 10px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      width: 100%; /* Увеличено в 2 раза по ширине — если нужно точнее, лучше задать фиксированную ширину */
+      max-width: 500px; /* Новая ширина */
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(32, 178, 170, 0.7);
+      border: none;
+      color: white;
+      font-size: 12px;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      z-index: 2;
+    }
+
+    .slider .prev {
+      left: 10px;
+    }
+
+    .slider .next {
+      right: 10px;
+    }
+    .portfolio-item p {
+      margin-top: 10px;
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero" id="hero">
+    <h1 class="fade-in">ВПК</h1>
+    <p class="fade-in">Ваше Пространство Комфорта</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <p class="fade-in"><strong>Георгий</strong></p>
+    <p class="fade-in">+7 968 834 79 88</p>
+    <a href="tel:+79688347988"><button class="call-button fade-in">Позвонить</button></a>
+  </section>
+
+<section class="portfolio" id="portfolio">
+  <h2 class="fade-in">Наши работы</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-row fade-in">
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-32.userapi.com/s/v1/ig2/vfI6C15KcHpnw1tOYp7mcr6oOLItb0aKmt5rbtaUGx1lTRAdDv1RiJihEjU_dP6FSD3y4Y5y89GHr49bXWJWW0r8.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide active">
+          <img src="https://sun9-87.userapi.com/s/v1/ig2/DfWOt4LrAn9-easleJWNxO5JH5kZE-kXFsOFLrUdTPlVE0IdA1Hlzcy0wru89YuIUoZdU_kH6Z8UiR5BHbIWsyv4.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-70.userapi.com/s/v1/ig2/VuMSSCQCASikYxXb08mpfrxS-NRdQMRDJhgJvxdVwGZRnYyme7bHBGfeR_xzXJyoc4jAvARcPA8RK5I49xWvmBBA.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-24.userapi.com/s/v1/ig2/drgC5qiO4aglFgG7PmIkzhM1Ft5ACKwb3HJlonoLA0qfdo8aaMMFplwKjj4f4U2eDh0teIVcBQ14AoAwj1WaLPs5.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x199,240x299,360x449,480x598,540x673,640x798,720x897,1080x1346,1280x1596,1440x1795&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-79.userapi.com/s/v1/ig2/7B5uYB_MtjgDgCMRhBBephwbRW-Gma3bGHCgx5gq36Vpd-KYNv0XtaKQdNXVoISelppXEmlOxFJKU11QxuT4Tjkn.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>Шкаф-купе с тонированным стеклом и корпусом из ЛДСП — это стильное и функциональное решение для современного интерьера. Фасады с тонированными стеклянными вставками придают изделию элегантность и визуальную лёгкость, а корпус из высококачественного ЛДСП обеспечивает прочность и долговечность конструкции. Раздвижные двери экономят пространство, делая шкаф идеальным для установки в спальне, прихожей или гардеробной. Внутреннее наполнение можно адаптировать под ваши потребности: полки, штанги для одежды, выдвижные ящики — всё для удобного хранения.</p>
+      </div>
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-8.userapi.com/s/v1/ig2/LjfKNLqNrTtkZ4QvthYZPFkCb4KVZCrwP4zFdAujfXBFqEQD-IMmLKi15-d9ZW_0pvAJ3V_WEERrDKCsbO6rGbyJ.jpg?quality=95&as=32x34,48x50,72x76,108x113,160x168,240x252,360x378,480x504,540x567,640x672,720x756,1080x1134,1190x1250&from=bu&cs=1190x0" class="slide active">
+          <img src="https://sun9-34.userapi.com/s/v1/ig2/HYlRVTdq5J6fs8ajFR3XSSYLcDi1gYvsAmKBL_oCFm-CzB3lhOv9RtgHzk2zly_O80yTgZBUXuXsTfDwzlH97-ig.jpg?quality=95&as=32x34,48x50,72x76,108x113,160x168,240x252,360x378,480x504,540x567,640x672,720x756,1080x1134,1192x1252&from=bu&cs=1192x0" class="slide">
+          <img src="https://sun9-26.userapi.com/s/v1/ig2/ii_jA-sxHoWgUxAd-bx_C0W_dYl06pAE-hhivp3F3l8pkS-ySQJ-akQv_rD6F47IlnscIWXtoF1JQJ1FNGfSdFD4.jpg?quality=95&as=32x34,48x50,72x76,108x113,160x168,240x252,360x378,480x504,540x567,640x672,720x756,1080x1134,1192x1252&from=bu&cs=1192x0" class="slide">
+          <img src="https://sun9-33.userapi.com/s/v1/ig2/x9WBRY7w77QQoT3bzq4Agv7VNYLZajtPmLacStZ98FlfmSESNWqT_g2IQT3Srha705Pc_CxeKB80jPC7IOaqaAkr.jpg?quality=95&as=32x34,48x50,72x76,108x113,160x168,240x252,360x378,480x504,540x567,640x672,720x756,1080x1134,1192x1252&from=bu&cs=1192x0" class="slide">
+          <img src="https://sun9-35.userapi.com/s/v1/ig2/Joz1RXukhX1gIJO9rfvqbfj9vTw3JV74vnRYjG4A462GCfTWN_TSlhUJO8_kZC7vY1NR-hInY2BRc9bHFaAzqDTk.jpg?quality=95&as=32x34,48x50,72x76,108x113,160x168,240x252,360x378,480x504,540x567,640x672,720x756,1080x1134,1192x1252&from=bu&cs=1192x0" class="slide">
+          <img src="https://sun9-1.userapi.com/s/v1/ig2/O-TRV6AH7M_7yyGVEfOnzYmQtAzf-jIvw7V3Nlvst9qH6i-8npVqlYJUlhPXbiDKJCXvburOR17v6G570ZAaXQjv.jpg?quality=95&as=32x34,48x50,72x76,108x113,160x168,240x252,360x378,480x504,540x567,640x672,720x756,1080x1134,1192x1252&from=bu&cs=1192x0" class="slide">
+          <img src="https://sun9-26.userapi.com/s/v1/ig2/grq8hzfG6DoBD5a_rjaxE-syJ_wx8lwCMvXHt0TNg2-T9MWpFVOlH1Lv3m5Nzpo-lJlpDXo_Cat8oVKwetHAcPgK.jpg?quality=95&as=32x34,48x50,72x76,108x113,160x168,240x252,360x378,480x504,540x567,640x672,720x756,1080x1134,1192x1252&from=bu&cs=1192x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>Современная кухня с фасадами из МДФ в глянцевой плёнке — стильное и практичное решение для любого интерьера. Верхние модули выполнены в белом глянце, визуально расширяющем пространство и придающем кухне чистоту и свежесть, а нижние — в тёплом бежевом оттенке, создающем уют и гармонию. Удобные накладные ручки, расположенные сверху и снизу, обеспечивают комфортное открытие шкафов. Во всей фурнитуре используются надёжные петли Blum, гарантирующие плавную и бесшумную работу дверок. Практичная пластиковая столешница устойчива к влаге, механическим повреждениям и легко очищается — идеальный выбор для повседневной эксплуатации.</p>
+      </div>
+    <div class="portfolio-row fade-in">
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-54.userapi.com/s/v1/ig2/fWzl2xdlEq4K_sfokM5NRDKUz_oafvK1XXTaHB6FctdiIVFRnIURR4bI0KzYf6rP4iBMq9EJMGq7KxtyLg8T-fC8.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide active">
+          <img src="https://sun9-50.userapi.com/s/v1/ig2/GIf6qKCxpwne5j48aPwTpaB5dMHjqywFkyOkXm9PgO1WkOZ4d00LuOpCHassPdtX4lYsVJsvFu85i9DbxyM1oVuB.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-70.userapi.com/s/v1/ig2/XS64Ccil8e0ECRT1NmqnV7JyZV_HEsN_YLzxtjzR5EuoGJNeh1PvZDU_mU9xxSxPBgScAAvbycJ8RWQgR9vWdZun.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-30.userapi.com/s/v1/ig2/gZJiAlgSRdzo_GrYNwCR_84Ua3EupTa7Tzy8j_CUP2BFiayjnDM1o1SR1ss8ct7MELs5owgOFUC9ROx7l4N0r8Dz.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-3.userapi.com/s/v1/ig2/BNzLn_I5ByeuGRWexc62tXAmhEpmsKd986ou-xtMfXeQ_6kjr18I5zgkOK9Skeb1cQS718F7Zd0rJEHgxwATlC6W.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-34.userapi.com/s/v1/ig2/rLQTdKfx2-8iAp4YFJ78Q8__rR6FFQEKTOEVJ42QWQ9Oqz5PLtRRyaN9PXbmAfO4X7J9sUXKKMbp1Cfx-8W4-f2D.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-57.userapi.com/s/v1/ig2/uBGBrzePGPDx3hM0ePtFq16_eyhJz7QqJ9gK7YUsuU84oyYnEuqO_KRfjagM0IzlNZxH-JZVLX2m9LAtPGouFjVl.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-65.userapi.com/s/v1/ig2/D5cRg3ggEWVAq9OIz9B2Hl6sd3sYZD30l7KLIHvJWGvZDJD-XtE0fJv8hbQYH3kMQQ8-PWGmVWzgFVdcd2ej2dxF.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>Яркая кухня с фасадами из МДФ в глянцевой плёнке — стильное и смелое решение для современного интерьера. Верхние шкафы выполнены в насыщенном салатовом цвете, который добавляет свежести и энергии в пространство, а нижние фасады — в классическом глянцевом белом исполнении, создающем ощущение лёгкости и чистоты. Удобные накладные ручки установлены на всех модулях и подчёркивают современный дизайн. Прочная пластиковая столешница с текстурой под дерево придаёт кухне натуральный акцент, сочетая в себе эстетику и практичность — устойчива к влаге, загрязнениям и механическим повреждениям.</p>
+      </div>
+    </div>
+    <div class="portfolio-row fade-in">
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-41.userapi.com/s/v1/ig2/lN4O52jvdn1UOpz0BkelBm8p9X6E5bAxMs7QClFwzjePk4JBYo2KNP5nY6L6PMWcJgxnmY5Gl86qKonMiTpDjQg4.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide active">
+          <img src="https://sun9-37.userapi.com/s/v1/ig2/KUbxNyuXO2_M41nwY6OvxDeeH87tC14MIBZGVHf1duWPkUsJnE-2VjLY5CvYBW_g-0OeK1RxZzpCRiAFlIHZo4rp.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-29.userapi.com/s/v1/ig2/DvXawZN8c-qjXTHYxxwoxSgQFU8rmbfTZXtGWQ83kRkz1n_dJI3L2soj5zwmN3jVObOqFCIcZt91rudQXh39aGto.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-80.userapi.com/s/v1/ig2/T_oCLxf1_bHbIzbWvoaASXC9bbBK6E765FeB5PGliNnv-clXTGOo688WLAcHFbyO6ureCLx6zI2rxjZS_ZUuEtA9.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-37.userapi.com/s/v1/ig2/DNhS3bXc9qugvlBTGKyz2Td2KscCApcNRP6W6FeLsXbYVKmF8GTa29qYwJYd43xv0ef7l63lf5RnMcUZWp0KsB17.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-82.userapi.com/s/v1/ig2/j6eATRbfhzgQtNhzPuppQ3QETHbE14nfJ_zlOaKaEMCtQSp27bm1bvNeXI29qyNw0_qEQMgoLs-JUygRF218qsej.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>описание</p>
+      </div>
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-83.userapi.com/s/v1/ig2/xV3K9S67GFkWMtrj4Du4j0Dz7zB0iB7G0JYT4KQIVbmT8qoPBE158Xeu8cKzBkBquuD6z4BbPcQrVb5beMAnlZ3k.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide active">
+          <img src="https://sun9-9.userapi.com/s/v1/if2/OVbvaWH0X4DtYiteQgZGYW9rFVMwcw70qdksfreFFjrzQ5WqUEEVAz5K-2pjYm0XE70l4aGpPNJLFcREK6PR16c5.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,2049x1537&from=bu&cs=2049x0" class="slide">
+          <img src="https://sun9-41.userapi.com/s/v1/ig2/5vG_OttLij8a0uP2vcp21_H_M-NICvkBvdCG2-s7z4JcPjeX9h_wSEXxDJrYObD8tweHSQPPxsrN2ZY8uSZZrmOc.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide">
+          <img src="https://sun9-57.userapi.com/s/v1/if2/n5REpb5e5NTbWiRnZJLwEsjklBzXbSV4RLbI4_UDSlLoqeNtb0hNYXeTmlBEltZPf0Sj3ct4Balvzh6rMxk90xwv.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,2049x1537&from=bu&cs=2049x0" class="slide">
+          <img src="https://sun9-50.userapi.com/s/v1/ig2/14oEGeI84jyEY3fHKOIqaQ9UY-rt_z9Sg19wj-dUZLp-0eOkBpw7o-mlVxf8THlp52O5JHk0JvtNZzdg97PeT_7m.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>описание</p>
+      </div>
+    <div class="portfolio-row fade-in">
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-32.userapi.com/s/v1/ig2/GGaYuYs4KBtuIpnxmh7EHf0aAjIyOFiLJmIX-_n0E480FMRkaWRLGSEdHFAjreUDMUwpCpOjyNoiA_T7EgsMxsgF.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide active">
+          <img src="https://sun9-84.userapi.com/s/v1/ig2/ND06MSN5VGoUdPXk8A4ZI2ELi1RAjOK5Gz_KZpBFGEf-_T768ChJQGNt4i6r-_eBS0Oq-axwtbx8S0q5lBdKb5Qt.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide">
+          <img src="https://sun9-43.userapi.com/s/v1/ig2/dk1biOXe6GCA46mCvHH1mxQhPbSoyMndsHBI4jMVdZJyjpdf2zddtbMmSNRpELusZK_tqnj2GA8glg876lQbkel_.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide">
+          <img src="https://sun9-6.userapi.com/s/v1/ig2/G1v2JhzWo3i5quV-nzdRceEbztcKjOowCem7pT9JandKfzZHINxdSgbdFnQ_beX_b2F53riUU2ee9Ip2iy7LCSY8.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide">
+          <img src="https://sun9-13.userapi.com/s/v1/ig2/Izm_O4ZQl3ZMoXNMXHDkXmqYVSo_Jj-zJRkASVCzkRhW8TyiGa9wjyWH91qGkwr56Y0UiwpENZTvn2wJSNZ8D-zA.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>описание</p>
+      </div>
+    </div>
+    <div class="portfolio-row fade-in">
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-48.userapi.com/s/v1/ig2/Vs2kSQyhAjbeeWVScmRqJ_layuld50UXkE1gUhzjwUNchwqsyUB1FxRh9AVWtkDWlqlel34yGQJGcSaQUEu0Rx-D.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide active">
+          <img src="https://sun9-1.userapi.com/s/v1/ig2/ZH1yveRzKIPWG5vT3Jgb3e4x5Iu-AS-OtM03fE-ggLzY5nWDYVXudslSLimrOUyHGPrCVUuFUyvMwUUxEY2ELdcH.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide">
+          <img src="https://sun9-50.userapi.com/s/v1/ig2/7aIZXD1AbzfnKsfprMh1jJWm63hmUUeczCktk5Ieul_y23Fcojzu8EdCgBboZ7uybssMdmtbxuReYiM6Yb1d2hAI.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide">
+          <img src="https://sun9-34.userapi.com/s/v1/ig2/GAxBjFyNYtSHZ6cQwJJGvBXW5-HcDdyxRnGLJcrXeLwFb7IDzBD2vJSSe4p98GNIOhib0Dos5_DDnCQK8XnvYe0-.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1706,1440x1920,1537x2049&from=bu&cs=1537x0" class="slide">
+
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>описание</p>
+      </div>
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-78.userapi.com/s/v1/ig2/94tO6mOqAGyN579Px2Eqy9LwRpnUdy3q4g__GEg8fTeGVatEoSzhtx0gFMBPfSXvIrBky37212yhBqGwK3liIGd3.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide active">
+          <img src="https://sun9-38.userapi.com/s/v1/ig2/wpnlelmV3hU6ok6RGwyfc7NTfiM0mcNpuZTUTpTIVVPeIzyJm3cqRNP8gXnjrNx6Z_LPY4n8-bM9DkWynlmsTLC5.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-6.userapi.com/s/v1/ig2/J9y-ermGHgFBGeATviQqtUWA5XB8O8sqgHIF2NHYETmZ9N8wmliwFt86mxu8ya8uWDOSIgeb1ds015omU9ATd-1z.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-73.userapi.com/s/v1/ig2/Rf4b4VMFZ7vnD6RFHjqWoqpvw0zUEXFCooICF7GEgJ99-SxVTotAs_4EsYu-fdHIwQpTxxpf_kXB3I-wUDQnrRvU.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-64.userapi.com/s/v1/ig2/Hw5TwbC3B51ho3aANt3Waabp-ZnoHGfdHoJHzXoZKBqDMf-9zKnec2XfcGz3KHCnEqrreBSxPLay0-z0PRTU2HHJ.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-33.userapi.com/s/v1/ig2/NCw8GWO2I6ClNpe2wXeeRr8_wWWwDCj9xQ_risbLhsOc9ESJgnIYPaiy4pLnZOsEresNsTLjKAxANmmn2YnT8Dnx.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-57.userapi.com/s/v1/ig2/uK8DE7i19tL_EQ8fh0lswsX1nqQgLyZ3dN1uhUmhUTzV0B1xg-et2xKgSum-ky1HFj6sN-KzUXOQZWbHduD8XRbm.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-77.userapi.com/s/v1/ig2/Nyc0kNZsjTlpC765T2Urj0cKZR6Yhm67sD_jC_eJTMokw1nDQjmFzcrwRIfFPV1z945YR6FIKutkRJ-wI42bqkyp.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-88.userapi.com/s/v1/ig2/pO9zyFutCbfJGIs5sJcRkh9IQpVZMHgoQCxrbCXNN1XMtj8SkMeJeNaLlWuthdpb9rCWIDJwzfhGKqSJslt2S-kW.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>описание</p>
+      </div>
+    <div class="portfolio-row fade-in">
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-42.userapi.com/s/v1/ig2/E4LlR-hPbqOAq8Da3Se3CG48Hr__Q5ESUisd3ThKdoiJ_mfQjbQ2pMGdQj1AKmAL143uc5KqSeQh5Da0xhRkw_lw.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide active">
+          <img src="https://sun9-74.userapi.com/s/v1/ig2/btg7z809hzxVdeT2Ns8ocnzAWW5iBacoaW1FS1I11ntqqlfeN07_X8nzxpjrrPe-awovDb-ujy8QP-Ae1TG_ccvr.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-42.userapi.com/s/v1/ig2/uobL9K5KOoyH7RGNGoX3eK8hyfc7udUC-mCEoNOG7oqjLBB3Tev5tmPU0o74fWzrPOo1fUHXl2UhVKfSmXHver96.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-82.userapi.com/s/v1/ig2/xfMOtcwM9vI69qpvMZxrOsvK2lvCASLVwrcmnKaDoMN0121euARztX2C8opGFr0qpUH_BrHeg-R0tCxbQcmEousH.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-87.userapi.com/s/v1/ig2/c_7b7uRDghj_rD8KhvACaANLQp6x6HnWfh3OkJJUuBDJe2RjwEk6a6J7SJXdJPLB6jT27TtFv884dwhEfD2MGQ7_.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>описание</p>
+      </div>
+    </div>
+        <div class="portfolio-row fade-in">
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-19.userapi.com/s/v1/ig2/K8i7iI5U9z0uk8WH7WJfnP1exKn8eiZsnHWfsVmpy2dXyn9uSNAxKBUW6PqtoGoK6VOV-HNn-ZNYCrOHWMlR0J28.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide active">
+          <img src="https://sun9-25.userapi.com/s/v1/ig2/KBw6yRiz90cTNJdpRnGxcYQgwgVI8EA-vjt6h_hThdJgmo4geAwkPOPmqWCdVlO_1WOtUwSLs8B4KcpZz2Mvt_NP.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-39.userapi.com/s/v1/ig2/wVx93rEP0IiSP-7pbwc5clcbiWkny-MeRAY2bwv-ax4cJu1VI4EOPkHdEeD8FjUks1UwV034jqImke50n8UmWTBL.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-65.userapi.com/s/v1/ig2/p1ZS_Q00IngQpC3s79dVKzGZj4Y962dmYuQNghTh39_FJ_Wst6WjUu_z2spGoqDXheEnpiB-8rTlTKnkeAPQ8myp.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-59.userapi.com/s/v1/ig2/6R1HSHyVZIHHQ9uDM2_8l0D27gwlT29e9-9uPQx5Plx7JBFLY9gyKaMo_1AxU1XzlGhd7HnQ_FXFjYw0Pixb-Bl8.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>описание</p>
+      </div>
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-24.userapi.com/s/v1/ig2/nQQaKsXVOyrB5xHghW7NqWAW5tecNf06BpFgollgj12lQRwinumEwv8zVHjvDTKIlr5P_gfGbtNUgfie6k5N0MN3.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide active">
+          <img src="https://sun9-64.userapi.com/s/v1/ig2/lTy6zq5dMMZ6VI5EBSKyzwI6ulZo91-oGrVGg61Hc5TOm41S9BR8Z8Njnk2IK7zaP_LRG70DT2XzU6JTSGVvEvhE.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-17.userapi.com/s/v1/ig2/-jICT1HEgZcC14T8lF_7H-WD-1IbiWp0Hbh_PveYBCmzLX1DXuixoB3NgtOqXsgOMdyBw9MxKe67tpgiKH4rEqEW.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-16.userapi.com/s/v1/ig2/LsQKmYvB3fxSvZkiYMCNocDstZ3if6wFSdhcwcEEXV6H8_3Q66maT7URgu15ypGwUyJACGZXUN_rB3yvraJ9sTMh.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1351,1280x1601,1440x1801&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-14.userapi.com/s/v1/ig2/y_fiH454YliKKt626g_Ivnf25kbypJRcQVN3_hXhnzo9meUBDSwHDIm24v3likjLZ_i4pGZQxXBS4seFKoP-X60m.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-50.userapi.com/s/v1/ig2/A0QczzJhtOQeTso2MKV7uh9ck8XYozaE3C2FuxMUa5NeZhJv_rhWXzMmC4EE6sJ86ps1udbAdFjzUnNz-aDocOeq.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x899,1080x1349,1280x1599,1440x1799&from=bu&cs=1440x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>кухня выполнена в современном стиле с элементами хай-тек. Вместительные шкафы до потолка, скрытая встраиваемая техника, удобная рабочая зона. Четкие геометрические формы, отсутствие лишних деталей, что подчеркивает лаконичность и функциональность. Основной тон — холодный белый, дополненный серебрянный (ручки), создающие контраст. Идеальный вариант для тех, кто ценит технологичность, удобство и стиль без лишнего декора.</p>
+      </div>
+    <div class="portfolio-row fade-in">
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-86.userapi.com/s/v1/ig2/bmcWDo1nn2FmbRNBRD96Em_axH25hg2eaIkIh0p4PM07Ug7v8MJTFWDqIHrNEHdnDS2ydE8Qni0CaIFJDQJMMy8G.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide active">
+          <img src="https://sun9-28.userapi.com/s/v1/ig2/nUhpbGXz1dCUwcJ1sm4OBkNlq4fNbD7dCZxLLIGk0iiDaEm04J1Xs3aMuVDtacN63ZRorLNibskcYFVwwIx_ufhW.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x199,240x299,360x449,480x598,540x673,640x798,720x897,1080x1346,1280x1596,1440x1795&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-80.userapi.com/s/v1/ig2/7SC0QvBU4HMoovIjEYHMW1zU2TBeH6srb5xDjReE9g6ID9H1hwByLBz6x1q4tluCay_ZzxhXZFWWlnXxa5hCIFTx.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide">
+          <img src="https://sun9-55.userapi.com/s/v1/ig2/dRymGJDx56YL7KGcSzE1STvR03VLW9fivpBK1qbdpmLm8TAwGg1w6bdpK6tAe68rA5hEuVTJxR9_vTiehXKcw8Y_.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,640x800,720x900,1080x1350,1280x1600,1440x1800&from=bu&cs=1440x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>Стильная система хранения в виде встроенного шкафа-купе гармонично вписывается в интерьер помещения и становится его неотъемлемой частью. стеклянные двери с лазерной обработкой создают ощущение легкости и визуально увеличивают пространство. шкаф имеет несколько полок для хранения вещей, что делает его удобным для организации пространства.</p>
+      </div>
+    </div>
+        <div class="portfolio-row fade-in">
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-42.userapi.com/s/v1/ig2/6YmfGXryZo-7ur9GHvlMGZplKC8pM8WtliKXuJ01kGxpzUSR481xWjX5O7ohvj2SzR3Ezp-YvK6wKU9IFeWrNSx3.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide active">
+          <img src="https://sun9-39.userapi.com/s/v1/ig2/UIkGNdii6Gs-n3SZAvFiFEv31BWfJGgSa68_vW6FTAXe7RFkD8uJI-37B3iNsm96xWgpC_IN6y2_HuPxsT2ZGF40.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-8.userapi.com/s/v1/ig2/fUfOIMmhhrkxR_eEEXYAkfLMl2NZDdT-Rk-0XKd-gtlbBdD0TqBXk43WoTxyXQXhAXyaxn6CVQ_muKZLdBGUdrXK.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-56.userapi.com/s/v1/ig2/AyDmBmwF2bj1hg8cMzIhpIUhDPTWWfoxm0zTkk1YhlVoimstRKNcsMTRxZWVSqobXDHX0m3Gi8Z161yz05Oqo5rr.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-59.userapi.com/s/v1/ig2/1PNn9xhfIrzObLSabnfjTFLco8AV4LIrPF1EscFviZMlJ9mxtkn_kpyp2V_naseQHHFagFosSos6wlyj41uVmuWl.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-20.userapi.com/s/v1/ig2/7p1lK1_CikFD58CjV6m3Z6B27903Envt_Uy_ULNh3W9oW3bTsFprs3yIDOGxm6G896vdqjdWIY-3vrBSnQ2U_paQ.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-14.userapi.com/s/v1/ig2/F-vT9O2fOaZgnobNwZ2sp2Aq0rXPk517U7OkaG2xCwVVs1Wzt0k1itltV9gAhXqX4qGC6C5-sNc6poiY9IbmtLjE.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>Эта небольшая кухня выполнена в современном стиле с минималистичным дизайном. светлые тона, создают ощущение простора и чистоты. Верхние шкафы с отделкой под дерево добавляют тепла и уюта. встроенные шкафы и ящики обеспечивают удобное хранение. Рабочая поверхность выполнена из светлого материала, что облегчает уход за ней.</p>
+      </div>
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-81.userapi.com/s/v1/ig2/b6tnXjA70fj12Iwo-JbZl0XT4PBSOL3GZGhqWetF3utufbF_LJ2OFF1Fnv9u25zdwH_rO306CPSK1aMNQdL10WI1.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide active">
+          <img src="https://sun9-78.userapi.com/s/v1/ig2/I73DSNFEaIMcvVNMeyN9jjZYNRSNEfx5-1Iiq8r3ER90cfoktFeG66nnlt2BIByZj_r4ErIhJDMxn8le7FCrtbyQ.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-52.userapi.com/s/v1/ig2/EfMFaJKfUsdW3u4Zj_C_xiKL17svp3YhK3OA9FEJbbwIr1w42Pg62819ZmGGTMaYuR7vNMujKjfplVrlm7_5IvOQ.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-34.userapi.com/s/v1/ig2/bxDSTOZzDYBf-9jdWPM2phTkVpW7Go-Mj663M6p4K_p_KQvAhfuY73MZl-vzrRmDbeO_h1j6fs4d0HpXBLDIihEH.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-12.userapi.com/s/v1/ig2/8Ydpw8AigLAU-bly0m7bD8GJr4lUeDUPBZe-GKN-tGQb2FiL7u_rCjWfCPxDIq2hEElthGC06RRX8Dy3zn9OGU27.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>Эта небольшая треугольная прихожая выполнена в светлых тонах, что визуально увеличивает пространство. Встроенные шкафы и полки обеспечивают удобное хранение вещей, а мягкие сиденья добавляют комфорта. Крючки на стене позволяют аккуратно разместить верхнюю одежду, а аккуратные детали, такие как ручки и отделка, создают уютную атмосферу.</p>
+      </div>
+    <div class="portfolio-row fade-in">
+      <div class="portfolio-item">
+        <div class="slider">
+          <img src="https://sun9-1.userapi.com/s/v1/ig2/LwK-xzv4re5lrmlj9jIvgzwfzheGw1fNaZOo57N5GRi9eJw-Dwrl8gvKwiHxs546pGSHYfTERgP_OxXd5LY_8XFq.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide active">
+          <img src="https://sun9-78.userapi.com/s/v1/ig2/TLd1JcK94IH8-hYVn-Gki8CtMI3zAMpCHLiKX_MJce3m_ZpA8ID8ARVeMC0nQrdnosj4HbmtkwFr4GsFXjV0y_2l.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-46.userapi.com/s/v1/ig2/b2AqFz68e1I4vBM7FCtlqNOx-PFxxE2ut_Lc1B05nfxgly7VOe98k8EC7omQkpWw8KvSoWP28XdvWQ3ryvRao5KR.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-63.userapi.com/s/v1/ig2/TZmEt_UFNVoM--Av2-Z3Osw69qbsm3-SjBjbbUPgo8zE309IOeeZIZmzjI8MEqRO7_3vVmeAgU4r5Q0Gb-kvMKE7.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-2.userapi.com/s/v1/ig2/m-0A26yNmzcr_6HQTEVJCqr95cMht2v5zUixFEHXTwQoUqP7Z96rpV7DYcs1ArrHfImSg3rqxpkfR8iouI91U1w0.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <img src="https://sun9-57.userapi.com/s/v1/ig2/QG0cIlSxcP7iPef7Uf_6UsfGK_CZzk9yhtEsI0pqertRgawSdhLFETQl-7JeccqGolMn5jlMUfLkt1Sw6CBquCyP.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" class="slide">
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+        <p>Стильная кухня в минимализсе, синий цвет добавляет красок из за чего кухня выглядит довольно минисалистично и строго, но при этом не тускло. В данном случае синий цвет добавляет гармонии в данную кухню. Данный тон наиболее "уравновешенный" для человеческого глаза, из за чего на кухню приятнее смотреть.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.slider').forEach(slider => {
+      let slides = slider.querySelectorAll('.slide');
+      let current = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+      }
+
+      slider.querySelector('.prev').addEventListener('click', () => {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+      });
+
+      slider.querySelector('.next').addEventListener('click', () => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      });
+
+      showSlide(current);
+    });
+  </script>
+</body>
+</html>
